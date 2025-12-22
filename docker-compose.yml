@@ -29,6 +29,7 @@ services:
     restart: always
 
   frontend:
+    platform: linux/amd64
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -37,6 +38,7 @@ services:
     depends_on:
       - backend
     restart: always
+
 
 volumes:
   dbdata:
