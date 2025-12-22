@@ -1,0 +1,20 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div  class="historial-title">
+    <h1>Historial de boletos</h1>
+  </div>
+
+  <div class="tarjetas-container">
+    <div class="tarjeta-boleto" *ngFor="let boleto of boletos">
+      <div class="contenido-boleto">
+        <h2>{{ boleto.evento }}</h2>
+        <p class="fecha">{{ boleto.fecha }} • {{ boleto.hora }}</p>
+        <img [src]="boleto.qr" alt="Código QR" class="qr-img" />
+        <p class="id">ID: {{ boleto.id }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

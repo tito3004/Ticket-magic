@@ -1,0 +1,36 @@
+<ion-content class="main-content">
+  <h1 class="titulo">TICKETMAGIC</h1>
+
+  <section class="eventos-section">
+    <h2 class="section-title">Eventos disponibles</h2>
+
+    <div class="fila-eventos">
+      <div class="card" *ngFor="let evento of eventos">
+        <div class="imagen-container">
+          <img [src]="'http://localhost:3000/sistema_reserva/public/images/' + evento.imagen_nombre"
+            (error)="onImageError($event)" alt="Imagen del evento" />
+        </div>
+
+
+        <div class="info">
+          <h3>{{ evento.nombre_evento }}</h3><br>
+          <div class="fechas-lista"*ngIf="lugarPorEvento[evento.id_evento]?.length"></div>
+          <h3 *ngFor="let lugar of lugarPorEvento[evento.id_evento]">{{ lugar }}</h3><br>
+          <!-- Fechas agrupadas por evento -->
+          <p *ngIf="fechasPorEvento[evento.id_evento]?.length">
+            Fechas disponibles:
+          </p>
+          <div class="fechas-lista">
+            <div *ngFor="let fecha of fechasPorEvento[evento.id_evento]">
+              {{ fecha }}
+            </div>
+          </div>
+
+
+          <button class="btn-ticket" (click)="irACompra()">COMPRAR TICKET</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ion-content>

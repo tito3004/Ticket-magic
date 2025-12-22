@@ -1,0 +1,14 @@
+<ion-content class="fondo-gradiente">
+  <div class="formulario-centro">
+    <div class="form-card">
+      <h2 class="titulo">Registrar Artista</h2>
+      <form [formGroup]="artistaForm" (ngSubmit)="guardarArtista()">
+      <ion-input label="Nombre del artista" labelPlacement="floating" fill="outline" formControlName="nombre_artista"></ion-input>
+      <ion-input label="Género musical" labelPlacement="floating" fill="outline" formControlName="genero"></ion-input>
+      <ion-textarea label="Descripción" labelPlacement="floating" fill="outline" autoGrow="true" formControlName="tipo_artista"></ion-textarea>
+      <ion-button expand="block" type="submit">GUARDAR</ion-button>
+    </form>
+      
+    </div>
+  </div>
+</ion-content>

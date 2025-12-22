@@ -1,0 +1,102 @@
+:host {
+  ion-content {
+    --background: #0a0a0a;
+  }
+}
+
+.cancelar-container {
+ max-width: 450px;
+  width: 90%;
+  margin: auto;
+  margin-top: 7vh!important;
+  margin-bottom: 7vh!important;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #7c3aed;
+  color: white;
+  text-align: center;
+}
+
+ion-item {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  margin-top: 1rem;
+  --highlight-color-focused: #7c3aed;
+  --color: white;
+}
+
+ion-label {
+  color: #ccc;
+}
+
+ion-select,
+ion-textarea {
+  color: white;
+}
+
+ion-button {
+  margin-top: 2rem;
+  --background: #e11d48;
+  --border-radius: 10px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .cancelar-container {
+    padding: 1rem;
+    margin-top: 1vh;
+  }
+}
+.fondo-oscuro {
+  --background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.contenedor-formulario {
+  max-width: 450px;
+  width: 90%;
+  margin: auto;
+  margin-top: 7vh;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #7c3aed;
+  color: white;
+  text-align: center;
+}
+.button-cancelar{
+  --background:red;--color:white;
+}
+.formulario {
+  
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+ion-input {
+  background-color: #1c1c2e;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  --padding-start: 1rem;
+}
+
+ion-input::part(native-input) {
+  color: white;
+}
+
+ion-button {
+  --color:white!important;
+  --background: #7c3aed;
+  --border-radius: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,19 @@
+<ion-content class="custom-alert-overlay">
+  <div class="custom-alert-box">
+    <h2 class="custom-alert-message">
+      {{ verificacionExitosa ? 'Cuenta verificada con éxito' : 'Error de verificación' }}
+    </h2>
+
+    <p class="descripcion-alerta">
+      {{
+      verificacionExitosa
+      ? 'Ahora puedes iniciar sesión con tu cuenta.'
+      : 'Hubo un problema al verificar tu cuenta. Intenta de nuevo o contacta soporte.'
+      }}
+    </p>
+
+    <button class="custom-alert-button">
+      <a href="/login">IR AL LOGIN</a>
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-content class="register-page">
+  <div class="register-wrapper">
+    <div class="register-box">
+      <h1 class="brand">REGISTRO</h1>
+      <form [formGroup]="usuariosForm" (ngSubmit)="registrarUsuario()" class="register-form">
+        <ion-input class="register-input" placeholder="Nombres completos" type="text" fill="solid"
+          formControlName="nombres"></ion-input>
+        <ion-input class="register-input" placeholder="Apellidos completos" type="text" fill="solid"
+          formControlName="apellidos"></ion-input>
+        <ion-input class="register-input" placeholder="Correo electrónico" type="email" fill="solid"
+          formControlName="correo"></ion-input>
+        <ion-input class="register-input" placeholder="Cédula" type="text" fill="solid"
+          formControlName="cedula"></ion-input>
+        <ion-input class="register-input" placeholder="Contraseña" type="password" fill="solid"
+          formControlName="password"></ion-input>
+
+        <ion-input class="register-input" placeholder="Confirmar contraseña" type="password" fill="solid"
+          formControlName="confirmarpassword" name="confirmarpassword"></ion-input>
+
+        <ion-button expand="block" class="register-button" type="submit">Registrarse</ion-button>
+      </form>
+      <p class="texto-link">¿Ya tienes una cuenta?
+        <a class="texto-link" href="/login"> Inicia sesión</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

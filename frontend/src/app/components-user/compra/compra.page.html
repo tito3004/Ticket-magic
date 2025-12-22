@@ -1,0 +1,47 @@
+<ion-content class="compra-container">
+  <div class="compra-card">
+    <h2>Finaliza tu compra</h2>
+
+    <form [formGroup]="compraForm" (ngSubmit)="Compra()">
+      
+      <label>Selecciona un evento</label>
+      <ion-select formControlName="id_evento" placeholder="Selecciona evento" interface="popover">
+        <ion-select-option *ngFor="let e of eventos" [value]="e.id">
+          {{ e.nombre }}
+        </ion-select-option>
+      </ion-select>
+
+      <label>Localidades disponibles</label>
+      <ion-select formControlName="localidad" placeholder="Selecciona localidad - lugar"
+        [disabled]="!opcionesLocalidades.length" interface="popover">
+        <ion-select-option *ngFor="let ll of opcionesLocalidades" [value]="ll.localidad">
+          {{ ll.localidad }} - {{ ll.lugar }}
+        </ion-select-option>
+      </ion-select>
+
+
+
+      <label>Fechas disponibles</label>
+      <ion-select formControlName="id_fecha" [disabled]="!opcionesFechas.length">
+        <ion-select-option *ngFor="let f of opcionesFechas" [value]="f.id_fecha">
+          {{ f.fecha }}
+        </ion-select-option>
+      </ion-select>
+
+      <label>Horas disponibles</label>
+      <ion-select formControlName="id_hora" [disabled]="!opcionesHoras.length">
+        <ion-select-option *ngFor="let h of opcionesHoras" [value]="h.id_hora">
+          {{ h.hora }}
+        </ion-select-option>
+      </ion-select>
+
+
+      <label>Cantidad de entradas</label>
+      <ion-input type="number" min="1" formControlName="cantidad"></ion-input>
+
+      <ion-button expand="block" class="boton-finalizar" type="submit">
+        Finalizar compra - Via PayPal <ion-icon name="paypal-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

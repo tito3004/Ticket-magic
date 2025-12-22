@@ -1,0 +1,19 @@
+<ion-content class="login-page">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1 class="brand">Recupera tu contraseña</h1>
+      
+      <form [formGroup]="usuariosForm" (ngSubmit)="recuperar()">
+      <ion-input
+        class="login-input"
+        placeholder="Correo electrónico..."
+        type="email"
+        fill="solid"
+        formControlName="correo">
+      </ion-input>
+      <ion-button expand="block" class="login-button" type="submit">Enviar correo</ion-button>
+      <p class="texto-link-recuperar"><a class="texto-link" href="/login">Regresar al Inicio de sesion</a></p>
+    </form>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,88 @@
+.fondo-gradiente {
+  --background: #0f0f0f;
+  background: linear-gradient(to bottom, #0f0f0f, #111127);
+  height: 100%;
+}
+
+.formulario-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.form-card {
+  background: #0f0f0f;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+ion-input,
+ion-textarea {
+  --background: #1a1a2e;
+  --color: white;
+  --border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+ion-button {
+  --background: #7c3aed;
+  --border-radius: 0.5rem;
+  --color: white;
+  font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 1.3rem;
+  }
+
+  ion-button {
+    font-size: 0.9rem;
+  }
+}
+/* 1) Asegura que la página ocupa el alto completo */
+:host, ion-app, ion-router-outlet, ion-page {
+  display: block;
+  height: 100%;
+}
+
+/* 2) Fuerza que el área scrolleable de ion-content permita desplazamiento */
+ion-content::part(scroll) {
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  min-height: 100%;
+}
+
+/* 3) No bloquees el scroll por overflow oculto heredado */
+html, body {
+  overflow-y: auto !important;
+}
+
+/* 4) Evita que algún contenedor interno “fije” la altura */
+.formulario-centro,
+.form-card {
+  max-height: none !important;
+  height: auto !important;
+}

@@ -1,0 +1,155 @@
+.login-page {
+  --background: linear-gradient(to bottom, #0f0f0f, #141629, #1c1f35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 2rem 1rem;
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  position: relative;
+}
+.brand::before,
+.brand::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.login-input {
+  margin-bottom: 1rem;
+  --background: rgba(255, 255, 255, 0.1);
+  --color: white;
+  --placeholder-color: #ccc;
+  --border-radius: 12px;
+}
+
+
+.login-button {
+  --background: #6d28d9;
+  --color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+.forgot-password {
+  margin-top: 1rem;
+  display: block;
+  color: #ccc;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+.texto-link a {
+  color: #7c3aed;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.texto-link a:hover {
+  text-decoration: underline;
+}
+.texto-link {
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+.texto-link-recuperar a {
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.texto-link-recuperar a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .compra-card, .register-box, .login-box, .start-container, .eventos-section .card {
+    width: 95% !important;
+    margin: auto;
+    font-size: 14px;
+  }
+
+  .eventos-section .fila-eventos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventos-section .card img {
+    width: 100% !important;
+    height: auto;
+  }
+
+  ion-input, ion-button, .fecha-btn, .boton-finalizar {
+    font-size: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 18px !important;
+  }
+
+  .btn-ticket {
+    width: 90%;
+    margin: 8px auto;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .texto-link {
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+.texto-link a {
+  color: #7c3aed;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.texto-link a:hover {
+  text-decoration: underline;
+}
+.texto-link-recuperar a {
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.texto-link-recuperar a:hover {
+  text-decoration: underline;
+}
+}

@@ -1,0 +1,89 @@
+
+
+<ion-content [fullscreen]="true" scroll-y="true"class="fondo-gradiente">
+  <div class="formulario-centro">
+    <div class="form-card">
+      <h2 class="titulo">
+        <ion-icon name="location-outline" style="vertical-align:middle; margin-right:8px;"></ion-icon>
+        Registrar lugar
+      </h2>
+
+      <form [formGroup]="lugarForm" (ngSubmit)="guardarlugar()">
+
+        <!-- Datos del lugar -->
+        <ion-input label="Nombre del lugar" labelPlacement="floating" fill="outline"
+          formControlName="nombre_lugar"></ion-input>
+
+        <ion-input label="Capacidad total" labelPlacement="floating" fill="outline" type="number"
+          formControlName="capacidad"></ion-input>
+
+        <ion-input label="Nombre del país" labelPlacement="floating" fill="outline"
+          formControlName="nombre_pais"></ion-input>
+
+        <ion-input label="Nombre de la ciudad" labelPlacement="floating" fill="outline"
+          formControlName="nombre_ciudad"></ion-input>
+
+        <!-- Generador de asientos -->
+        <h2 class="titulo">
+
+          Agregar asientos
+        </h2>
+
+        <div [formGroup]="localidadForm" class="grid-localidad">
+          <ion-input label="Descripción (ej. Localidad VIP)" labelPlacement="floating" fill="outline"
+            formControlName="descripcion"></ion-input>
+
+          <ion-input label="Cantidad" labelPlacement="floating" fill="outline" type="number"
+            formControlName="cantidad"></ion-input>
+
+          <ion-input label="Precio" labelPlacement="floating" fill="outline" type="number"
+            formControlName="precio"></ion-input>
+
+          <ion-button expand="block" (click)="agregarLocalidad()" [disabled]="localidadForm.invalid">
+            Agregar asientos
+          </ion-button>
+        </div>
+
+        <!-- Resumen generado -->
+        <ion-card *ngIf="json_asientos.length">
+          <ion-card-header>
+            <ion-card-title>Resumen de asientos ({{ json_asientos.length }})</ion-card-title>
+            <ion-card-subtitle>Próximo número: {{ siguienteNumeroPreview }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-list lines="full">
+              <ion-item *ngFor="let r of resumenAsientos">
+                <ion-label>
+                  <div><strong>{{ r.descripcion }}</strong></div>
+                  <small>
+                    Números: #{{ r.desde }} – #{{ r.hasta }} ·
+                    Cant: {{ r.cantidad }} ·
+                    Precio: {{ r.precio | currency:'USD':'symbol':'1.2-2' }}
+                  </small>
+                </ion-label>
+                <div slot="end" style="text-align:right;">
+                  <div><strong>{{ r.subtotal | currency:'USD':'symbol':'1.2-2' }}</strong></div>
+                  <small>Subtotal</small>
+                </div>
+              </ion-item>
+            </ion-list>
+
+            <div class="totales">
+              <div>Total asientos: <strong>{{ json_asientos.length }}</strong></div>
+              <div>Total estimado: <strong>{{ totalEstimado | currency:'USD':'symbol':'1.2-2' }}</strong></div>
+            </div>
+
+            <ion-button color="medium" fill="outline" (click)="limpiarAsientos()" expand="block">
+              Limpiar lista
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="block" type="submit" [disabled]="lugarForm.invalid || !json_asientos.length">
+          GUARDAR
+        </ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

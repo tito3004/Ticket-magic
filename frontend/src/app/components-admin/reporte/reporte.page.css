@@ -1,0 +1,89 @@
+.fondo-oscuro {
+  --background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.contenedor-formulario {
+  max-width: 450px;
+  width: 90%;
+  margin: auto;
+  margin-top: 20vh;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #7c3aed;
+  color: white;
+  text-align: center;
+}
+
+.qr-item {
+  --background: #1a1a22;
+  --color: #e5e7eb;
+  --highlight-color-focused: #7C3AED;
+  --padding-start: 12px;
+  --padding-end: 6px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+ion-button.qr-camera {
+  
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --background: #1a1a22;
+  --box-shadow: none;
+  --border-radius: 50%;
+  --min-width: auto;
+  min-width: 0;           
+}
+
+ion-button.qr-camera::part(native) {
+  white-space: nowrap;
+}
+ion-button.qr-camera:hover {
+  --background: #1a1a22;
+}
+
+
+.qr-item ion-icon {
+  font-size: 20px;
+  color :white;
+}
+.qr-item ion-icon:hover {
+  --color: #7c3aed;
+  --color-select: #7c3aed;
+}
+
+
+
+.formulario {}
+
+.titulo {
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+ion-input {
+  background-color: #1c1c2e;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  --padding-start: 1rem;
+}
+
+ion-input::part(native-input) {
+  color: white;
+}
+
+ion-button 
+{
+  --color:white!important;
+  --background: #7c3aed;
+  --border-radius: 12px;
+  font-weight: bold;
+}

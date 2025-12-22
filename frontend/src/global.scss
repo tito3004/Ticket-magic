@@ -1,0 +1,201 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Fondo oscuro semitransparente con efecto glass */
+.custom-alert-box {
+  background: rgba(30, 30, 30, 0.85);
+  padding: 28px 24px;
+  border-radius: 16px;
+  max-width: 85%;
+  width: 320px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: scaleIn 0.25s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animación suave */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mensaje claro y fuerte */
+.custom-alert-message {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Botón morado elegante */
+.custom-alert-button {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.custom-alert-button:hover {
+  background-color: #5f2ac6;
+  transform: translateY(-1px);
+}
+
+:root {
+  --logout-bg: #dc2626; /* Rojo */
+  --logout-color: #fff; /* Blanco */
+  --logout-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+
+/* Estado base: móvil = FAB visible */
+.btn-logout { display: none !important; }
+ion-fab.logout-fab {
+  display: block !important;
+  z-index: 1000;
+  margin-top: calc(env(safe-area-inset-top) + 8px);
+  margin-right: calc(env(safe-area-inset-right) + 8px);
+}
+
+/* Igualar estilo del FAB */
+ion-fab.logout-fab ion-fab-button {
+  --background-color: var(--logout-bg);
+  --color: var(--logout-color);
+  box-shadow: var(--logout-shadow);
+}
+ion-fab.logout-fab ion-icon {
+  color: var(--logout-color);
+  font-size: 1.4rem;
+}
+
+/* Desktop = botón píldora visible */
+@media (min-width: 768px) {
+  ion-fab.logout-fab { display: none !important; }
+  .btn-logout {
+    display: inline-flex !important;
+    position: fixed;
+    top: calc(env(safe-area-inset-top) + 10px);
+    right: calc(env(safe-area-inset-right) + 10px);
+    z-index: 1000;
+
+    background: var(--logout-bg);
+    color: var(--logout-color);
+    border: none;
+    border-radius: 25px;
+    padding: 0 14px;
+    height: 45px;
+
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--logout-shadow);
+    font-weight: 700;
+    letter-spacing: .3px;
+    white-space: nowrap;
+  }
+  .btn-logout ion-icon {
+    font-size: 1.2rem;
+    color: var(--logout-color);
+  }
+}
+
+/* En móvil ocultar píldora */
+@media (max-width: 767.98px) {
+  .btn-logout { display: none !important; }
+  ion-fab.logout-fab { display: block !important; }
+}
+
+ion-tab-button:hover {
+  --color: #5f2ac6;
+  --color-selected: #5f2ac6;
+}
+ion-tab-button{
+  --color-selected: #5f2ac6;
+}
+
+/* Móvil: baja los FAB y reduce tamaño */
+@media (max-width: 767px) {
+  /* altura aproximada del título/zona superior: ajusta 56/64/72 según tu diseño */
+  :root { --tm-top-offset: 56px; }
+
+  .admin-fab,
+  .logout-fab {
+    margin-top: calc(env(safe-area-inset-top) + var(--tm-top-offset));
+    z-index: 1000;
+  }
+
+  
+
+  .admin-fab ion-icon,
+  .logout-fab ion-icon {
+     --color: #fff;
+    font-size: 1.1rem;
+  }
+  .admin-fab ion-icon { --background: #16a34a; --color: #fff; }
+  .logout-fab ion-icon { --background: #dc2626; --color: #fff; }
+}
+
+
+

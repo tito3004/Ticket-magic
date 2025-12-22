@@ -1,0 +1,81 @@
+<ion-content class="fondo-gradiente">
+  <div class="formulario-centro">
+    <div class="form-card">
+      <h2 class="titulo">Registrar Evento</h2>
+
+      <form [formGroup]="eventoForm">
+        <ion-input label="Nombre del evento" labelPlacement="floating" fill="outline"
+          formControlName="nombre_evento" class="field"></ion-input>
+
+        <ion-input label="Tipo de evento" labelPlacement="floating" fill="outline"
+          formControlName="tipo_evento" class="field"></ion-input>
+
+        <ion-select label="Artista" labelPlacement="floating" fill="outline"
+          formControlName="artista_sel" class="field">
+          <ion-select-option *ngFor="let a of artistasDisponibles" [value]="a.nombre_artista">
+            {{ a.nombre_artista }}
+          </ion-select-option>
+        </ion-select>
+        <br>
+        <ion-select label="Lugar(es)" labelPlacement="floating" fill="outline" [multiple]="true"
+          formControlName="lugares_sel" (ionChange)="onLugaresChange($event.detail.value)" class="field">
+          <ion-select-option *ngFor="let l of lugaresDisponibles" [value]="l.nombre_lugar">
+            {{ l.nombre_lugar }}
+          </ion-select-option>
+        </ion-select>
+        <br>
+        <ion-textarea label="Descripción" labelPlacement="floating" fill="outline" autoGrow="true"
+          formControlName="descripcion" class="field"></ion-textarea>
+      </form>
+
+      <h2 class="titulo">Agregar fechas:</h2>
+      <form [formGroup]="fechaForm" class="grid-localidad">
+        <ion-input type="date" label="Inicio" labelPlacement="stacked" fill="outline"
+          formControlName="inicio"></ion-input>
+        <ion-input type="date" label="Fin" labelPlacement="stacked" fill="outline" formControlName="fin"></ion-input>
+        <ion-button expand="block" (click)="agregarFechasDeRango()" [disabled]="fechaForm.invalid">
+          Agregar fechas del rango
+        </ion-button>
+      </form>
+
+      <h2 class="titulo">Agregar horas:</h2>
+      <form [formGroup]="horaForm" class="grid-localidad">
+        <ion-input type="time" label="Hora" labelPlacement="stacked" fill="outline" formControlName="hora"></ion-input>
+        <ion-button expand="block" (click)="agregarHora()" [disabled]="horaForm.invalid">
+          Agregar hora
+        </ion-button>
+      </form>
+
+      <h2 class="titulo">Imagen del evento</h2>
+      <input type="file" accept="image/*" (change)="onFileChange($event)" />
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Resumen</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="totales">
+            <div>Fechas: <strong>{{ totalFechas }}</strong></div>
+            <div>Horas: <strong>{{ totalHoras }}</strong></div>
+            <div>Lugares: <strong>{{ totalLugares }}</strong></div>
+          </div>
+          <div *ngIf="!imagenFile"><small>Sin imagen seleccionada</small></div>
+          <div *ngIf="imagenFile"><small>Imagen: {{ imagenFile?.name }}</small></div>
+
+          <ion-button color="medium" fill="outline" (click)="limpiarFechas()" [disabled]="!json_fechas.length">
+            Limpiar fechas
+          </ion-button>
+          <ion-button color="medium" fill="outline" (click)="limpiarHoras()" [disabled]="!json_horas.length"
+            style="margin-left:8px">
+            Limpiar horas
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button expand="block" (click)="guardarEvento()"
+        [disabled]="saving || eventoForm.invalid || !json_fechas.length || !json_horas.length || !json_lugar.length || !imagenFile">
+        GUARDAR
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

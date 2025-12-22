@@ -1,0 +1,39 @@
+<ion-router-outlet></ion-router-outlet><ion-tabs>
+  <button class="btn-logout" (click)="cerrarSesion()">
+    Cerrar sesión<ion-icon name="log-out-outline"></ion-icon>
+  </button>
+  <ion-fab vertical="top" horizontal="end" slot="fixed" class="logout-fab">
+    <ion-fab-button color="danger" (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="top" horizontal="start" slot="fixed" class="admin-fab"
+           *ngIf="(isAdmin$ | async) === true">
+    <ion-fab-button color="success" (click)="abrirOpcionesAdmin()">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-tab-bar slot="bottom" class="tm-tabbar">
+    <ion-tab-button tab="explorar" href="/tabs-user/explorar">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label>Explorar</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="compra" href="/tabs-user/compra">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Comprar</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="historial" href="/tabs-user/historial">
+      <ion-icon name="ticket-outline"></ion-icon>
+      <ion-label>Mis tickets</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="calendario" href="/tabs-user/calendario">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Calendario</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="quejas" href="/tabs-user/quejas">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      <ion-label>Quejas</ion-label>
+    </ion-tab-button>    
+  </ion-tab-bar>
+</ion-tabs>

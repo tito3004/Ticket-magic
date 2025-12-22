@@ -1,0 +1,30 @@
+<ion-content class="login-page">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1 class="brand">TICKETMAGIC</h1>
+      <form [formGroup]="usuariosForm" (ngSubmit)="login()">
+      <ion-input
+        class="login-input"
+        placeholder="Correo electrónico..."
+        type="email"
+        fill="solid"
+        formControlName="correo">
+      </ion-input>
+
+      <ion-input
+        class="login-input"
+        placeholder="Contraseña..."
+        type="password"
+        fill="solid"
+        formControlName="password">
+      </ion-input>
+      <ion-button expand="block" class="login-button" type="submit">INICIAR SESIÓN</ion-button>
+    </form>
+      <p class="texto-link-recuperar"><a class="texto-link" href="/recuperar">¿Olvidaste tu contraseña?</a></p>
+      <p class="texto-link">
+  ¿No tienes cuenta?
+  <a (click)="irARegistro()">Crear cuenta</a>
+</p>
+    </div>
+  </div>
+</ion-content>

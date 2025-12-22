@@ -1,0 +1,98 @@
+
+:host ion-content {
+  --background: #0a0a0a;
+}
+
+.cancelar-container {
+  max-width: 450px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5vh;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #7c3aed;
+  color: white;
+  text-align: center;
+}
+ion-item {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  margin-top: 1rem;
+  --highlight-color-focused: #7c3aed;
+  --color: white;
+}
+
+ion-label { color: #ccc; }
+
+ion-select, ion-textarea { color: white; }
+
+ion-button {
+  margin-top: 2rem;
+  --background: #e11d48;
+  --border-radius: 10px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .cancelar-container {
+    padding: 1rem;
+    margin-top: 2vh;
+  }
+}
+
+
+.field {
+  margin: 10px 0;                  
+  --background: #151518;             
+  --color: #e5e7eb;
+  --highlight-color-focused: #7C3AED;
+  --border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.06); 
+}
+
+ion-input.field,
+ion-textarea.field {
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+}
+
+ion-select.field[fill="outline"],
+ion-input.field[fill="outline"],
+ion-textarea.field[fill="outline"] {
+  --border-color: rgba(124,58,237,.28);
+}
+ion-select.field::part(container) {
+  background: #151518;
+  border-radius: 12px;
+  padding-inline: 14px;
+  padding-block: 14px; 
+}
+ion-select.field::part(text)   { color: #e5e7eb; }
+ion-select.field.select-has-value::part(text) { color: #e5e7eb; }
+ion-select.field::part(label)  { color: #b3b3c2; }
+ion-select.field::part(icon)   { color: #c4b5fd; opacity: .9; }
+
+
+ion-select.field:focus-within::part(container) {
+  box-shadow: 0 0 0 1px rgba(124,58,237,.28) inset;
+}
+
+
+.ng-invalid.ng-touched .field,
+.ng-invalid.ng-touched ion-select.field {
+  border-color: rgba(239,68,68,.55);
+  box-shadow: 0 0 0 1px rgba(239,68,68,.22) inset;
+}
+
+ion-select[fill="outline"] { --border-color: rgba(124,58,237,.28); }
+ion-select::part(container) { background: #151518; border-radius: 12px; padding-inline: 14px; padding-block: 12px; }
+ion-select::part(text) { color: #e5e7eb; }
+ion-select::part(label) { color: #b3b3c2; }
+ion-select.select-has-value::part(text) { color: #e5e7eb; }
+ion-select::part(icon) { color: #c4b5fd; opacity: .9; }
+ion-select:focus-within::part(container) { box-shadow: 0 0 0 1px rgba(124,58,237,.28) inset; }
+.ng-invalid.ng-touched ion-select { border-color: rgba(239,68,68,.55); box-shadow: 0 0 0 1px rgba(239,68,68,.22) inset; }
+

@@ -1,0 +1,25 @@
+<ion-content class="login-page">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <h1 class="brand">Recupera tu Contraseña</h1>
+      <form [formGroup]="usuariosForm" (ngSubmit)="recuperando()">
+      <ion-input
+        class="login-input"
+        placeholder="Contraseña..."
+        type="password"
+        fill="solid"
+        formControlName="password">
+      </ion-input>
+
+      <ion-input
+        class="login-input"
+        placeholder="Confirma tu contraseña..."
+        type="password"
+        fill="solid"
+        formControlName="confirmarpassword">
+      </ion-input>
+      <ion-button expand="block" class="login-button" type="submit">Restaurar contraseña</ion-button>
+    </form>
+    </div>
+  </div>
+</ion-content>

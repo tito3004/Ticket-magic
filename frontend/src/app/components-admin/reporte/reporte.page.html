@@ -1,0 +1,22 @@
+<ion-content class="fondo-oscuro">
+  <div class="contenedor-formulario">
+    <div class="formulario">
+      <h2 class="titulo">Compruebe su código QR</h2>
+
+      <ion-item class="qr-item" fill="outline" lines="none">
+        <ion-input
+          placeholder="Código"
+          [(ngModel)]="codigo"
+          (keyup.enter)="comprobarCodigo()">
+        </ion-input>
+
+        <!-- Botón de cámara (placeholder por ahora) -->
+        <ion-button slot="end" class="qr-camera" fill="clear" aria-label="Abrir cámara" (click)="abrirCamara()">
+          <ion-icon name="camera-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <ion-button expand="block" (click)="comprobarCodigo()">COMPROBAR</ion-button>
+    </div>
+  </div>
+</ion-content>

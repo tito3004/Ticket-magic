@@ -1,0 +1,6 @@
+
+//middleware para manejo de errores del lado del servidor
+module.exports = (err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Error interno del servidor' });
+};

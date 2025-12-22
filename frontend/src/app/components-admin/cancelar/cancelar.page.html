@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+
+
+  <h2 class="titulo" style="margin-top:4vh;">Administración</h2>
+  <div class="contenedor-formulario">
+    <div class="formulario">
+      <h2 class="titulo">Generar Reporte</h2>
+      <form [formGroup]="generarForm" (ngSubmit)="reporteEvento()">
+      <ion-item lines="none">
+        <ion-label position="stacked">Genere reporte de:</ion-label>
+        <ion-select formControlName="nombre_evento" placeholder="Selecciona un evento" required>
+          <ion-select-option *ngFor="let evento of eventos">{{evento.nombre_evento}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="block" type="submit">
+        GENERAR
+      </ion-button>
+    </form>
+    </div>
+  </div>
+  <div class="cancelar-container">
+    <h2>Cancelar Evento</h2>
+
+    <form [formGroup]="cancelarForm" (ngSubmit)="cancelarEvento()">
+      <ion-item lines="none">
+        <ion-label position="stacked">Evento a cancelar</ion-label>
+        <ion-select formControlName="nombre_evento" placeholder="Selecciona un evento" required>
+          <ion-select-option *ngFor="let evento of eventos">{{evento.nombre_evento}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-button expand="block" type="submit" class="button-cancelar">
+        Cancelar Evento
+      </ion-button>
+    </form>
+  </div>
+
+
+</ion-content>
