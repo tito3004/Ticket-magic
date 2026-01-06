@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 // Formato genérico de respuesta de la API pública
 export interface ApiResponse {
@@ -15,7 +16,7 @@ export interface ApiResponse {
 export class PublicService {
   // Configuración base de headers y URL del backend
   private headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
-  private url = "http://localhost:3000/sistema_reserva/public";
+  private url = `${environment.apiurl}public`;
 
   constructor(private http: HttpClient) {}
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 // Interfaz de la respuesta esperada desde la API
 export interface ApiResponse {
@@ -16,7 +17,7 @@ export interface ApiResponse {
 })
 export class AdminService {
   private headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
-  private url = "http://localhost:3000/sistema_reserva/admin";
+  private url = `${environment.apiurl}admin`;
 
   constructor(private http: HttpClient) { }
 

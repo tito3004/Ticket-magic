@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, tap, catchError } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 export interface ApiResponse {
   status: boolean;
   message: string;
@@ -15,7 +15,7 @@ export interface ApiResponse {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   // Config base de API y headers
-  private url = 'http://localhost:3000/sistema_reserva/auth';
+  private url = `${environment.apiurl}auth`;
   private headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
 
   // Estado reactivo del rol (admin|user|null)
