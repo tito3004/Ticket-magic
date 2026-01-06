@@ -2,7 +2,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
-import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
+import { provideRouter, withPreloading, PreloadAllModules, withHashLocation } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 // Importa el componente principal y rutas
@@ -45,10 +45,15 @@ bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(
+      routes,
+      withPreloading(PreloadAllModules),
+      withHashLocation() // 🔥 Necesario para GitHub Pages
+    ),
     provideHttpClient(withInterceptors([tokenInterceptor])),
   ],
 });
+
 
 // Sobrescribe window.alert con un diseño personalizado en HTML/CSS
 window.alert = (mensaje: string) => {
@@ -77,3 +82,4 @@ window.alert = (mensaje: string) => {
     document.body.appendChild(overlay);
   }, 0);
 };
+
