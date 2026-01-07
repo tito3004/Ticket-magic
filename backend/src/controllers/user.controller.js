@@ -12,7 +12,7 @@ exports.createUser = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '30m' }
     );
-    const verificationLink = `http://localhost:8100/verificado?token=${verificationToken}`;
+    const verificationLink = `https://ticket-magic.vercel.app/verificado?token=${verificationToken}`;
     const user = await userService.create(req.body);
     await emailService.sendMail(user.correo, 'Verifica tu cuenta',
       `
@@ -56,7 +56,7 @@ exports.restaurar_password = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '30m' }
     );
-    const reustaurarlink = `http://localhost:8100/recuperando?token=${reustaurarToken}`;
+    const reustaurarlink = `https://ticket-magic.vercel.app/recuperando?token=${reustaurarToken}`;
     await emailService.sendMail(correo, 'Restaura tu contraseña',
       `
         <h2>Hola, aqui esta tu enlace de restauracion</h2>

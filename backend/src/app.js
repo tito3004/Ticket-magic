@@ -10,7 +10,7 @@ const cors = require('cors');
 
 //restricciones nesesarias para la api
 app.use(cors({
-    allowedOrigins: ['http://localhost:4200','http://localhost:8100'], // Dirección del frontend
+    allowedOrigins: ['http://localhost:4200','http://localhost:8100', 'https://ticket-magic.vercel.app'], // Dirección del frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
     allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
 }));

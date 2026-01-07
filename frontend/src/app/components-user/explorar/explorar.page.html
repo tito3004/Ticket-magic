@@ -7,7 +7,7 @@
     <div class="fila-eventos">
       <div class="card" *ngFor="let evento of eventos">
         <div class="imagen-container">
-          <img [src]="'http://localhost:3000/sistema_reserva/public/images/' + evento.imagen_nombre"
+          <img [src]="'https://ticket-magic.vercel.app/sistema_reserva/public/images/' + evento.imagen_nombre"
             (error)="onImageError($event)" alt="Imagen del evento" />
         </div>
 

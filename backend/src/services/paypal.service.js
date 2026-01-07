@@ -18,8 +18,8 @@ exports.paypal_api_link = async (total, cod_unico_boleto) => {
         brand_name: "TicketMagic",
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
-        return_url: `http://localhost:8100/tabs-user/pago-realizado?cod_unico_boleto=${cod_unico_boleto}`,
-        cancel_url: `http://localhost:8100/tabs-user/pago-cancelado?cod_unico_boleto=${cod_unico_boleto}`
+        return_url: `https://ticket-magic.vercel.app/tabs-user/pago-realizado?cod_unico_boleto=${cod_unico_boleto}`,
+        cancel_url: `https://ticket-magic.vercel.app/pago-cancelado?cod_unico_boleto=${cod_unico_boleto}`
       }
     };
 
