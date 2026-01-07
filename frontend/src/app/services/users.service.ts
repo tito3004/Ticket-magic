@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 export interface ApiResponse<T = any> {
   status: boolean;
@@ -24,7 +25,7 @@ export interface CompraResumen {
 @Injectable({ providedIn: 'any' })
 export class UsersService {
   // Base URL del backend (módulo usuario)
-  private url = 'http://localhost:3000/sistema_reserva/usuario';
+  private url = `${environment.apiurl}usuario`;
 
   // Headers para peticiones JSON (no usar con FormData)
   private jsonHeaders = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
