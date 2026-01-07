@@ -47,8 +47,7 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(
       routes,
-      withPreloading(PreloadAllModules),
-      withHashLocation() // 🔥 Necesario para GitHub Pages
+      withPreloading(PreloadAllModules)
     ),
     provideHttpClient(withInterceptors([tokenInterceptor])),
   ],
