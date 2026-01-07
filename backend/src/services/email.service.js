@@ -3,19 +3,20 @@ const nodemailer = require('nodemailer');
 //Servicio para envio de correos
 //configuracion del correo
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: process.env.EMAIL_HOST,
+  port: Number(process.env.EMAIL_PORT),
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  
+
   tls: {
-    rejectUnauthorized: false, // 🔑 evita errores en Render
+    rejectUnauthorized: false, 
   },
 });
 //Servicio: enviar correos
 exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
- const mailOptions = {
+  const mailOptions = {
     from: `"Ticketmagic" <${process.env.EMAIL_USER}>`,
     to,
     subject,
@@ -33,7 +34,7 @@ exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
   }
 
   return transporter.sendMail(mailOptions);
-  
+
 };
 //Servicio: enviar correos de notificacion de acceso indebidos al administrador
 exports.sendMailAdminNotificacion = async (req, res) => {
