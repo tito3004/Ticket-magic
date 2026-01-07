@@ -27,6 +27,7 @@
             "style": "kebab-case"
           }
         ],
+        "@angular-eslint/prefer-inject": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {
