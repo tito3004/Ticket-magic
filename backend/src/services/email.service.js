@@ -7,11 +7,15 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
-  }
+  },
+  
+  tls: {
+    rejectUnauthorized: false, // 🔑 evita errores en Render
+  },
 });
 //Servicio: enviar correos
 exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
- /**  const mailOptions = {
+ const mailOptions = {
     from: `"Ticketmagic" <${process.env.EMAIL_USER}>`,
     to,
     subject,
@@ -29,7 +33,7 @@ exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
   }
 
   return transporter.sendMail(mailOptions);
-  */
+  
 };
 //Servicio: enviar correos de notificacion de acceso indebidos al administrador
 exports.sendMailAdminNotificacion = async (req, res) => {
