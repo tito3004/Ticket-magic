@@ -16,12 +16,13 @@ const transporter = nodemailer.createTransport({
 });
 //Servicio: enviar correos
 exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
-  const mailOptions = {
+  /**const mailOptions = {
     from: `"Ticketmagic" <${process.env.EMAIL_USER}>`,
     to,
     subject,
     html: htmlContent
-  };
+  }
+    ;
 
   // Si se proporciona un archivo, lo añadimos como adjunto
   if (attachmentPath) {
@@ -34,10 +35,11 @@ exports.sendMail = async (to, subject, htmlContent, attachmentPath = null) => {
   }
 
   return transporter.sendMail(mailOptions);
-
+**/
 };
 //Servicio: enviar correos de notificacion de acceso indebidos al administrador
 exports.sendMailAdminNotificacion = async (req, res) => {
+  /*
   try {
     if (req.rol !== 'admin') {
       await emailService.sendMail(
@@ -49,5 +51,5 @@ exports.sendMailAdminNotificacion = async (req, res) => {
     }
   } catch (error) {
     console.error('Error en enviar correo:', error);
-  }
+  }*/
 };
